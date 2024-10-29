@@ -4,6 +4,8 @@ body {
     padding: 0;
     background-color: #f0f8ff;
     color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s;
 }
 
 header {
@@ -11,10 +13,12 @@ header {
     color: white;
     padding: 15px 20px;
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
     margin: 0;
+    animation: fadeIn 1s ease-in-out;
 }
 
 nav ul {
@@ -31,10 +35,12 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: #FFD700; /* Gold */
+    text-shadow: 0 0 5px white;
 }
 
 main {
@@ -49,12 +55,19 @@ section {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
     border-bottom: 2px solid #4CAF50;
     padding-bottom: 10px;
     margin-bottom: 15px;
+    animation: slideIn 0.5s ease-in-out;
 }
 
 h3 {
@@ -74,6 +87,7 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+    animation: fadeIn 1s ease-in-out;
 }
 
 img {
@@ -82,6 +96,11 @@ img {
     width: 100%;
     max-width: 300px;
     height: auto;
+    transition: transform 0.3s;
+}
+
+img:hover {
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
@@ -93,4 +112,62 @@ img {
     img {
         max-width: 100%;
     }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+header.dark-mode {
+    background-color: #1e1e1e;
+}
+
+section.dark-mode {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+nav a.dark-mode {
+    color: #FFD700;
+}
+
+footer.dark-mode {
+    background-color: #1e1e1e;
+}
+
+/* Cambios para el botón */
+#dark-mode-toggle {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #45a049;
 }
